@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
     function __construct() {
         parent::__construct();
-        //contatos é um alias para o Contatos_model 
+        //contatos Ã© um alias para o Contatos_model 
     }
     public function index() {
         //$this->load->view('template/header');

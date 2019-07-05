@@ -5,6 +5,6 @@
 	</head>
 	<body>
 		<h1>Home</h1>
-		<p>Ol· mundo!</p>
+		<p>Ol√° mundo!</p>
 	</body>
 </html>
