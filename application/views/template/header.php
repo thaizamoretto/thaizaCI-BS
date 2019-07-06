@@ -11,7 +11,12 @@
         <!--JS-->
         <link href="<?php echo base_url ('assets/js/bootstrap.min.js') ?>" rel="stylesheet">
         <link href="<?php echo base_url ('assets/js/jquery.min.js') ?>" rel="stylesheet">
-              
+        
+        <!-- Data Tabeles -->
+        <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+        
+        <link href="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" rel="stylesheet">
+        
     </head>
     <body>
         <div class="container">
