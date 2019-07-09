@@ -49,8 +49,9 @@
     <div class="col-lg-2 col-md-2 col-2"></div>
     <div class="col-lg-8 col-md-8 col-8">
 
-        <table class="table table-bordered">
-            <thead>
+        <h1 class="jumbotron-heading">Lista de Aluno</h1><p></p>
+        <table id="table_id" class="table table-striped table-bordered" style="width:100%">
+            <thead class="bg-secondary">
                 <tr>
                     <th scope="col">Id_Aluno</th>
                     <th scope="col">Nome</th>
@@ -76,3 +77,9 @@
     </div>
     <div class="col-lg-2 col-md-2 col-2"></div>
 </div>
+<script>
+        $(document).ready(function() {
+            $('#table_id').dataTable({
+        });
+    });
+</script>
