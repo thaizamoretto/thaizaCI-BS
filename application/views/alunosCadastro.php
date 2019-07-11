@@ -30,9 +30,7 @@
                 <label class="form-check-label" for="inlineRadio2">Masculino</label>
             </div>
         </div>
-
-
-
+        
         <input type="submit" name="salvar" value="Salvar" 
                class="btn btn-success"/>
 
@@ -49,7 +47,7 @@
     <div class="col-lg-2 col-md-2 col-2"></div>
     <div class="col-lg-8 col-md-8 col-8">
 
-        <h1 class="jumbotron-heading">Lista de Aluno</h1><p></p>
+        <h1 class="jumbotron-heading">Lista de Alunos</h1><p></p>
         <table id="table_id" class="table table-striped table-bordered" style="width:100%">
             <thead class="bg-secondary">
                 <tr>
@@ -59,6 +57,7 @@
                     <th scope="col">RG</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Sexo</th>
+                    <th scope="col">Editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,8 +67,12 @@
                         <td> <?php echo $row->Nome; ?></td>
                         <td> <?php echo $row->Endereco; ?></td>
                         <td> <?php echo $row->RG; ?></td>
-                        <td><?php echo $row->CPF; ?></td>
+                        <td> <?php echo $row->CPF; ?></td>
                         <td> <?php echo $row->Sexo; ?></td>
+                        <td> 
+                            <a href="<?php echo base_url().'alunos/editar/' . $row -> Id_Aluno; ?>" >Editar</a> 
+                            <a href="<?php echo base_url().'alunos/excluir/' . $row -> Id_Aluno; ?>" >Excluir</a> 
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

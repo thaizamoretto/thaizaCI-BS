@@ -13,18 +13,18 @@ class Alunos_model extends CI_Model {
     }
 
     function deletar($id) {
-        $this->db->where('id', $id);
+        $this->db->where('Id_Aluno', $id);
         return $this->db->delete('alunos');
     }
 
     function editar($id) {
-        $this->db->where('id', $id);
+        $this->db->where('Id_Aluno', $id);
         $result = $this->db->get('alunos');
         return $result->result();
     }
 
     function atualizar($data) {
-        $this->db->where('id', $data['id']);
+        $this->db->where('Id_Aluno', $data['Id_Aluno']);
         $this->db->set($data);
         return $this->db->update('alunos');
     }
