@@ -13,18 +13,18 @@ class Disciplina_model extends CI_Model {
     }
 
     function deletar($id) {
-        $this->db->where('id', $id);
+        $this->db->where('IdDisciplina', $id);
         return $this->db->delete('disciplina');
     }
 
     function editar($id) {
-        $this->db->where('id', $id);
+        $this->db->where('IdDisciplina', $id);
         $result = $this->db->get('disciplina');
         return $result->result();
     }
 
     function atualizar($data) {
-        $this->db->where('id', $data['id']);
+        $this->db->where('IdDisciplina', $data['IdDisciplina']);
         $this->db->set($data);
         return $this->db->update('disciplina');
     }

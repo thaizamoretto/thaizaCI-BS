@@ -70,8 +70,11 @@
                         <td> <?php echo $row->CPF; ?></td>
                         <td> <?php echo $row->Sexo; ?></td>
                         <td> 
-                            <a href="<?php echo base_url().'alunos/editar/' . $row -> Id_Aluno; ?>" >Editar</a> 
-                            <a href="<?php echo base_url().'alunos/excluir/' . $row -> Id_Aluno; ?>" >Excluir</a> 
+                            <a href="<?php echo base_url().'alunos/editar/' . $row -> Id_Aluno; ?>" >Editar
+                            <i class ="glyphicon glyphicon-edit"></i></a>
+                            
+                            <a href="<?php echo base_url().'alunos/excluir/' . $row -> Id_Aluno; ?>" >Excluir
+                            <i class ="glyphicon glyphicon-trash"></i></a> 
                         </td>
                     </tr>
                 <?php endforeach; ?>

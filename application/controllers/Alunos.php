@@ -23,23 +23,36 @@ class Alunos extends CI_Controller {
         $dados['Endereco'] = mb_convert_case($this->input->post('Endereco'), MB_CASE_UPPER);
         $dados['CPF'] = $this->input->post('CPF');
         $dados['Sexo'] = mb_convert_case($this->input->post('Sexo'), MB_CASE_UPPER);
-        $this->alunos->inserir($dados);
-        redirect('alunos');
+        $result = $this->alunos->inserir($dados);
+        
+        if($result==true){
+            $this->session->set_flashdata ('true','msg');
+            redirect('alunos');
+        }else{
+            $this->session->set_flashdata ('err','msg');
+            redirect('alunos');
+        }
     }
 
-    function excluir($id) {
-        $this->alunos->deletar($id);
-        redirect('alunos');
+    public function excluir($id) {
+        $result = $this->alunos->deletar($id);
+        if($result==true){
+            $this->session->set_flashdata ('excluirSucesso','msg');
+            redirect('alunos');
+        }else{
+            $this->session->set_flashdata ('err','msg');
+            redirect('alunos');
+        }
     }
 
-    function editar($id) {
+    public function editar($id) {
         $data['alunosEditar'] = $this->alunos->editar($id);
         $this->load->view('template/header');
         $this->load->view('alunosEditar', $data);
         $this->load->view('template/footer');
     }
 
-    function atualizar() {
+    public function atualizar() {
         $dados['Id_Aluno'] = $this->input->post('Id_Aluno');
         $dados['Nome'] = mb_convert_case($this->input->post('Nome'), MB_CASE_UPPER);
         $dados['RG'] = $this->input->post('RG');
@@ -47,8 +60,13 @@ class Alunos extends CI_Controller {
         $dados['CPF'] = $this->input->post('CPF');
         $dados['Sexo'] = mb_convert_case($this->input->post('Sexo'), MB_CASE_UPPER);
         
-        $this->alunos->atualizar($dados);
-        redirect('alunos');
+        $result= $this->alunos->atualizar($dados);
+        if($result==true){
+            $this->session->set_flashdata ('trueUpdate','msg');
+            redirect('alunos');
+        }else{
+            $this->session->set_flashdata ('err','msg');
+            redirect('alunos');
+        }
     }
-
 }

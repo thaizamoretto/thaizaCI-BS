@@ -23,21 +23,21 @@ class Disciplina extends CI_Controller {
         redirect('disciplina');
     }
 
-    function excluir($id) {
+    public function excluir($id) {
         $this->disciplina->deletar($id);
         redirect('disciplina');
     }
 
-    function editar($id) {
+    public function editar($id) {
         $data['disciplinaEditar'] = $this->disciplina->editar($id);
         $this->load->view('template/header');
         $this->load->view('disciplinaEditar', $data);
         $this->load->view('template/footer');
     }
 
-    function atualizar() {
+    public function atualizar() {
         $dados['IdDisciplina'] = $this->input->post('IdDisciplina');
-        $dados['Nome_Disciplina'] = $this->input->post('Nome_Disciplina');        
+        $dados['Nome_Disciplina'] = mb_convert_case($this->input->post('Nome_Disciplina'), MB_CASE_UPPER);       
         $this->disciplina->atualizar($dados);
         redirect('disciplina');
     }
