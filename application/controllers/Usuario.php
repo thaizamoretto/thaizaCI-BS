@@ -21,7 +21,7 @@ class Usuario extends CI_Controller {
         $dados['idusuario'] = mb_convert_case($this->input->post('idusuario'), MB_CASE_UPPER);
         $dados['nomeUsuario'] = mb_convert_case($this->input->post('nomeUsuario'), MB_CASE_UPPER);
         $dados['user'] = mb_convert_case($this->input->post('user'), MB_CASE_UPPER);
-        $dados['senha'] = $this->input->post('senha');
+        $dados['senha'] = md5($this->input->post('senha'));
         $dados['perfilAcesso'] = mb_convert_case($this->input->post('perfilAcesso'), MB_CASE_UPPER);
         $result = $this->usuario->inserir($dados);
         
@@ -56,10 +56,10 @@ class Usuario extends CI_Controller {
         $dados['idusuario'] = mb_convert_case($this->input->post('idusuario'), MB_CASE_UPPER);
         $dados['nomeUsuario'] = mb_convert_case($this->input->post('nomeUsuario'), MB_CASE_UPPER);
         $dados['user'] = mb_convert_case($this->input->post('user'), MB_CASE_UPPER);
-        $dados['senha'] = $this->input->post('senha');
+        $dados['senha'] = md5($this->input->post('senha'));
         $dados['perfilAcesso'] = mb_convert_case($this->input->post('perfilAcesso'), MB_CASE_UPPER);
         
-        $result= $this->ci_sessions->atualizar($dados);
+        $result= $this->usuario->atualizar($dados);
         if($result==true){
             $this->session->set_flashdata ('trueUpdate','msg');
             redirect('usuario');
