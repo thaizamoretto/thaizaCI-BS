@@ -30,4 +30,7 @@
         <div class="container">
         <?php
         // put your code here
+        if ($this->session->userdata('estou_logado')) {
+        echo $this->session->userdata('logado')->nomeUsuario;
+        }
         ?>

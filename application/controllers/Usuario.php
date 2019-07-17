@@ -6,6 +6,11 @@ class Usuario extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('Login');
+        }elseif ($this->session->userdata('logado')-> perfilAcesso != "ADMINISTRADOR") {
+            redirect('Home');
+        }
         $this->load->model('Usuario_model', 'usuario'); // 'usuario' é um alias para 'Usuario_model'
     }
 
@@ -20,8 +25,8 @@ class Usuario extends CI_Controller {
         //nome do campo do vetor deve ser o mesmo campo da tabela no BD
         $dados['idusuario'] = mb_convert_case($this->input->post('idusuario'), MB_CASE_UPPER);
         $dados['nomeUsuario'] = mb_convert_case($this->input->post('nomeUsuario'), MB_CASE_UPPER);
-        $dados['user'] = mb_convert_case($this->input->post('user'), MB_CASE_UPPER);
-        $dados['senha'] = md5($this->input->post('senha'));
+        $dados['user'] = mb_convert_case($this->input->post('user'), MB_CASE_LOWER);
+        $dados['senha'] = md5(mb_convert_case($this->input->post('senha'),MB_CASE_LOWER));
         $dados['perfilAcesso'] = mb_convert_case($this->input->post('perfilAcesso'), MB_CASE_UPPER);
         $result = $this->usuario->inserir($dados);
         
@@ -55,8 +60,8 @@ class Usuario extends CI_Controller {
     public function atualizar() {
         $dados['idusuario'] = mb_convert_case($this->input->post('idusuario'), MB_CASE_UPPER);
         $dados['nomeUsuario'] = mb_convert_case($this->input->post('nomeUsuario'), MB_CASE_UPPER);
-        $dados['user'] = mb_convert_case($this->input->post('user'), MB_CASE_UPPER);
-        $dados['senha'] = md5($this->input->post('senha'));
+        $dados['user'] = mb_convert_case($this->input->post('user'), MB_CASE_LOWER);
+        $dados['senha'] = md5(mb_convert_case($this->input->post('senha'),MB_CASE_LOWER));
         $dados['perfilAcesso'] = mb_convert_case($this->input->post('perfilAcesso'), MB_CASE_UPPER);
         
         $result= $this->usuario->atualizar($dados);

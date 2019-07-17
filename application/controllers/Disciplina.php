@@ -6,6 +6,9 @@ class Disciplina extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('Login');
+        }
         $this->load->model('Disciplina_model', 'disciplina'); // 'disciplina' é um alias para 'Disciplina_model'
     }
 

@@ -6,6 +6,9 @@ class Alunos extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('Login');
+        }
         $this->load->model('Alunos_model', 'alunos'); // 'alunos' é um alias para 'Alunos_model'
     }
 
