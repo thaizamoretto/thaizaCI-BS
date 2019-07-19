@@ -30,7 +30,7 @@
                 <label class="form-check-label" for="inlineRadio2">Masculino</label>
             </div>
         </div>
-        
+        <a class="btn btn-info" id="btn-lista" href="#">Lista de Alunos</a>
         <input type="submit" name="salvar" value="Salvar" 
                class="btn btn-success"/>
 
@@ -39,15 +39,15 @@
         <a class="btn btn-primary" href="<?php base_url(); ?>home" 
            id="cancelar">Cancelar</a>
            <?php form_close(); ?> 
+      
         
     </div>
     <div class="col-lg-3 col-md-3 col-3"></div>
 </div>
-<div class="row">
+<div id="div-lista" class="hide row">
     <div class="col-lg-2 col-md-2 col-2"></div>
     <div class="col-lg-8 col-md-8 col-8">
 
-        <h1 class="jumbotron-heading">Lista de Alunos</h1><p></p>
         <table id="table_id" class="table table-striped table-bordered" style="width:100%">
             <thead class="bg-secondary">
                 <tr>
@@ -88,5 +88,9 @@
             $('#table_id').dataTable({
                 language: { "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"}
         });
+    });
+    
+    $("#btn-lista").click(function () {
+        $("#div-lista").toggleClass("hide");
     });
 </script>
